@@ -17,10 +17,9 @@ jobs:
       matrix :
         version: [ a , b ]
         data_type : [ sparse, dense ]
-        output : ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}
     steps :
       - run : python3 -m pip3 install pandas numpy matplotlib
-      - run : python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.output }} -o ${{ matrix.output }} --units h g Pa
+      - run : python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
 
 
 
