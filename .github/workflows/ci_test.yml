@@ -3,7 +3,7 @@ name: SPE11CSP CI
 on:
   push:
     branches:
-      - main
+      - test/gha
     pull_request:
     workflow_dispatch:
 
@@ -21,8 +21,8 @@ jobs:
       steps :
         - run : python3 -m pip3 install pandas numpy matplotlib
         - run : |
-          [[ "${{ matrix.version }}" == a ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
-          [[ "${{ matrix.version }}" == b ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units d t bar
+          [[ "${{ matrix.version }}" == a ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
+          [[ "${{ matrix.version }}" == b ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units d t bar
 
 
 
