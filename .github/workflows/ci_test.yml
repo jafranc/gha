@@ -18,6 +18,8 @@ jobs:
         version: [ a , b ]
         data_type : [ sparse, dense ]
     steps :
+      - name : Setup python
+        uses: actions/setup-python@v4
       - run : python3 -m pip3 install pandas numpy matplotlib
       - run : python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
 
