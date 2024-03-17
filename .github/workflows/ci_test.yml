@@ -1,0 +1,29 @@
+name: SPE11CSP CI
+
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+    workflow_dispatch:
+
+
+jobs:
+
+  test_one_group:
+
+    runs-on: ubuntu-22.04
+    name : ${{ matrix.version }}-${{ matrix.data_type }}
+    matrix :
+      version: [ a , b ]
+      data_type : [ sparse, dense ]
+      output : ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}
+      steps :
+        - run : python3 -m pip3 install pandas numpy matplotlib
+        - run : |
+          [[ "${{ matrix.version }}" == a ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
+          [[ "${{ matrix.version }}" == b ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units d t bar
+
+
+
+  
