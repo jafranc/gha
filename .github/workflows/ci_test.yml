@@ -20,9 +20,7 @@ jobs:
       output : ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}
       steps :
         - run : python3 -m pip3 install pandas numpy matplotlib
-        - run : |
-          [[ "${{ matrix.version }}" == a ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
-          [[ "${{ matrix.version }}" == b ]] && python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units d t bar
+        - run : python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
 
 
 
