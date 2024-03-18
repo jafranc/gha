@@ -33,7 +33,7 @@ jobs:
         uses : actions/upload-artifact@v4
         with :
           name : illustrations-${{ matrix.name }}-${{ matrix.version }}-${{ matrix.data_type }}
-          path : /${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}/*.png
+          path : /${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}/{spe11${{ matrix.version }}_timeseries.png,plot_satg.png, plot_mCO2.png,plot_temp.png}
 
 
   
