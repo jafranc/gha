@@ -48,10 +48,10 @@ jobs:
           # commit_author: Author <actions@github.com>
           # status_options: '--untracked-files=no'
           # skip_dirty_check: true
-      - name: Merge ${{ matrix.version }}/${{ matrix.data_type }} -> test/gha
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: ${{ matrix.version }}/${{ matrix.data_type }}
-          target_branch: test/gha
+      # - name: Merge ${{ matrix.version }}/${{ matrix.data_type }} -> test/gha
+      #   uses: devmasx/merge-branch@master
+      #   with:
+      #     type: now
+      #     from_branch: ${{ matrix.version }}/${{ matrix.data_type }}
+      #     target_branch: test/gha
   
