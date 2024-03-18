@@ -1,5 +1,5 @@
 import numpy as np
-
+import pickle
 from data import Data, Conversion
 
 
@@ -44,7 +44,7 @@ class Dense_Data(Data):
     def process(self, odir, idir):
 
         # import multiprocessing as mp
-        baseFileName = 'plot'
+        baseFileName = f'spe11{self.version}_dense'
         import matplotlib.pyplot as plt
         fig = {'satg': plt.figure(figsize=(18, 6)),
                'mCO2': plt.figure(figsize=(18, 6))}
@@ -58,7 +58,6 @@ class Dense_Data(Data):
                                 'mCO2': ' mass fraction of CO2 in liquid[-]',
                                 'temp': ' temperature[C]'}
 
-        # for itime, time in enumerate(self.schedule[::int(len(self.schedule) / 10)][1:]):
         for itime, time in enumerate(self.schedule[:9]):
             import pandas as pd
             print(time)
@@ -72,6 +71,7 @@ class Dense_Data(Data):
 
         for key, _ in fig.items():
             fig[key].savefig(f'{odir}/{baseFileName}_{key}.png', bbox_inches='tight')
+            pickle.dump(fig[key], open(f'{odir}/{baseFileName}_{key}.pickle', 'w'))
     def _plot_(self, ttime, figdict, fn, dims):
         """ To check good rendition of plots - extract of B.Flemish code"""
         nx, ny, nz = dims
