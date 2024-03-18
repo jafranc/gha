@@ -119,5 +119,5 @@ class Sparse_Data(Data):
         axs[1][1].set_title('boxC')
 
         fig.tight_layout()
-        fig.savefig( f'{odir}/spe11{self.version}_timeseries-{self.suffix}.png', bbox_inches='tight')
-        pickle.dump(fig, open(f'{odir}/spe11{self.version}_timeseries-{self.suffix}.pickle','w'))
+        fig.savefig(f'{odir}/spe11{self.version}_timeseries-{self.suffix}.png', bbox_inches='tight')
+        pickle.dump(fig, open(f'{odir}/spe11{self.version}_timeseries-{self.suffix}.pickle', 'wb'))
