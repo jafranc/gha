@@ -34,11 +34,11 @@ jobs:
         with :
           name : illustrations-${{ matrix.name }}-${{ matrix.version }}-${{ matrix.data_type }}
           path : ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}/*.png
-      - name: download artifact
+      - name: Download artifact
         uses: actions/download-artifact@v2
         with:
           name: illustrations-${{ matrix.name }}-${{ matrix.version }}-${{ matrix.data_type }}
-          path: ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}/
+          path: ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
