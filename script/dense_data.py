@@ -71,7 +71,7 @@ class Dense_Data(Data):
 
         for key, _ in fig.items():
             fig[key].savefig(f'{odir}/{baseFileName}_{key}.png', bbox_inches='tight')
-            pickle.dump(fig[key], open(f'{odir}/{baseFileName}_{key}.pickle', 'w'))
+            # pickle.dump(fig[key], open(f'{odir}/{baseFileName}_{key}.pickle', 'w'))
     def _plot_(self, ttime, figdict, fn, dims):
         """ To check good rendition of plots - extract of B.Flemish code"""
         nx, ny, nz = dims

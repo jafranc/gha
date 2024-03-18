@@ -120,4 +120,4 @@ class Sparse_Data(Data):
 
         fig.tight_layout()
         fig.savefig(odir + '/spe11' + self.version + '_timeseries.png', bbox_inches='tight')
-        pickle.dump(open(odir + '/spe11' + self.version + '_timeseries.pickle','w'))
+        # pickle.dump(open(odir + '/spe11' + self.version + '_timeseries.pickle','w'))
