@@ -32,8 +32,8 @@ jobs:
       - name : Upload generated pngs
         uses : actions/upload-artifact@v4
         with :
-          name : ${{ matrix.name }}-${{ matrix.version }}-${{ matrix.data_type }}
-          path : illustrations/${{ matrix.name }}/${{ matrix.version }}
+          name : illustrations-${{ matrix.name }}-${{ matrix.version }}-${{ matrix.data_type }}
+          path : ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}/illustrations-${{ matrix.name }}-${{ matrix.version }}-${{ matrix.data_type }}.png
 
 
   
