@@ -29,7 +29,11 @@ jobs:
         run: python -m pip install --upgrade pip setuptools wheel pandas numpy matplotlib
       - name : Running driver
         run : python3 script/main.py --spe ${{ matrix.version }} --${{ matrix.data_type }} -i ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} -o ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }} --units h g Pa
-
+      - name : Upload generated pngs
+        uses : actions/upload-artifact@v4
+        with :
+          name : ${{ matrix.name }}-${{ matrix.version }}-${{ matrix.data_type }}
+          path : illustrations/${{ matrix.name }}/${{ matrix.version }}
 
 
   
