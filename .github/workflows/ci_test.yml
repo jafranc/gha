@@ -19,7 +19,7 @@ jobs:
         version: [ a , b ]
         data_type : [ sparse, dense ]
     steps :
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name : Setup python
         uses: actions/setup-python@v4
         with:
@@ -39,7 +39,7 @@ jobs:
         with :
           path: ${{ matrix.name }}/${{ matrix.version }}/${{ matrix.data_type }}/*.png
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Automated Change
           branch: test/gha
