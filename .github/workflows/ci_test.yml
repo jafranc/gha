@@ -42,7 +42,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Automated Change
-          branch: test/gha/${{ matrix.version }}/${{ matrix.data_type }}
+          branch: ${{ matrix.version }}/${{ matrix.data_type }}
           # commit_options: '--no-verify --signoff'
           # commit_author: Author <actions@github.com>
           # status_options: '--untracked-files=no'
