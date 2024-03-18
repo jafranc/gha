@@ -43,9 +43,9 @@ jobs:
         with:
           commit_message: Automated Change
           branch: test/gha
-          commit_options: '--no-verify --signoff'
-          commit_author: Author <actions@github.com>
-          status_options: '--untracked-files=no'
-          skip_dirty_check: true
+          # commit_options: '--no-verify --signoff'
+          # commit_author: Author <actions@github.com>
+          # status_options: '--untracked-files=no'
+          # skip_dirty_check: true
 
   
