@@ -26,8 +26,9 @@ class Conversion:
 
 
 class Data(metaclass=ABCMeta):
-    def __init__(self, version):
+    def __init__(self, version, suffix):
         self.version = version[0]
+        self.suffix = suffix[0]
         self.seal_facies_tag = "reservoir1"
         self.data_sets = {}
 

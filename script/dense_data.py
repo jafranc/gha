@@ -6,9 +6,9 @@ from data import Data, Conversion
 class Dense_Data(Data):
     """ Class for handling from vtm time series to dense data SPE11-CSP """
 
-    def __init__(self, version):
+    def __init__(self, version, suffix):
 
-        super().__init__(version)
+        super().__init__(version, suffix)
         self.phydims = (2.8, 1., 1.2)
         self.dims = (280, 1, 120)
         self.offset = [0., 0., -1.2]
@@ -70,7 +70,7 @@ class Dense_Data(Data):
             self._plot_((itime, time), fig, fn, self.dims)
 
         for key, _ in fig.items():
-            fig[key].savefig(f'{odir}/{baseFileName}_{key}.png', bbox_inches='tight')
+            fig[key].savefig(f'{odir}/{baseFileName}_{key}-{self.suffix}.png', bbox_inches='tight')
             # pickle.dump(fig[key], open(f'{odir}/{baseFileName}_{key}.pickle', 'w'))
     def _plot_(self, ttime, figdict, fn, dims):
         """ To check good rendition of plots - extract of B.Flemish code"""

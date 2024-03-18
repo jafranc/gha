@@ -8,8 +8,8 @@ from data import Data, Conversion
 class Sparse_Data(Data):
     """ Class for handling from vtm time series to sparse data SPE11-CSP"""
 
-    def __init__(self, version, units):
-        super().__init__(version)
+    def __init__(self, version, units, suffix):
+        super().__init__(version, suffix)
 
         self.converters = [('sec', 1), ('kg', 1), ('Pa', 1)]
 
@@ -119,5 +119,5 @@ class Sparse_Data(Data):
         axs[1][1].set_title('boxC')
 
         fig.tight_layout()
-        fig.savefig(odir + '/spe11' + self.version + '_timeseries.png', bbox_inches='tight')
+        fig.savefig( f'{odir}/spe11{self.version}_timeseries-{self.suffix}.png', bbox_inches='tight')
         # pickle.dump(open(odir + '/spe11' + self.version + '_timeseries.pickle','w'))

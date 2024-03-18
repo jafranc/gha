@@ -21,6 +21,10 @@ if __name__ == "__main__":
     parser.add_argument("-i",
                         help="path to the input dir",
                         nargs=1, required=True)
+
+    parser.add_argument("-s",
+                        help="sha suffix to uniq commit",
+                        nargs=1, required=True)
     # version
     parser.add_argument("--spe",
                         help="version spe11 a,b or c",
@@ -38,11 +42,11 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if args.dense:
-        dense = Dense_Data(args.spe)
+    if args.dense and args.s:
+        dense = Dense_Data(args.spe, suffix=args.s)
         dense.process(odir=args.o[0], idir=args.i[0])
-    elif args.sparse and args.units:
-        sparse = Sparse_Data(args.spe, units=args.units)
+    elif args.sparse and args.units and args.s:
+        sparse = Sparse_Data(args.spe, units=args.units, suffix=args.s)
         sparse.process(odir=args.o[0], idir=args.i[0])
     else:
         raise LookupError("Unknown options")
