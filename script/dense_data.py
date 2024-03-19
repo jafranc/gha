@@ -1,5 +1,4 @@
 import numpy as np
-import pickle
 from data import Data, Conversion
 
 
@@ -71,7 +70,6 @@ class Dense_Data(Data):
 
         for key, _ in fig.items():
             fig[key].savefig(f'{odir}/{baseFileName}_{key}-{self.suffix}.png', bbox_inches='tight')
-            pickle.dump(fig[key], open(f'{odir}/{baseFileName}_{key}-{self.suffix}.pickle', 'wb'))
     def _plot_(self, ttime, figdict, fn, dims):
         """ To check good rendition of plots - extract of B.Flemish code"""
         nx, ny, nz = dims
