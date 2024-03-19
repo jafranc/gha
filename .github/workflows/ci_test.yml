@@ -3,7 +3,7 @@ name: SPE11CSP CI
 on:
   push:
     branches:
-      - test/gha
+      - main
 
 
 jobs:
@@ -46,6 +46,5 @@ jobs:
         with:
            type: now
            from_branch: ${{ matrix.version }}/${{ matrix.data_type }}
-           target_branch: test/gha
            github_token: ${{ secrets.GITHUB_TOKEN }}
   
