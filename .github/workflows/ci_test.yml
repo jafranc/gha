@@ -41,10 +41,11 @@ jobs:
         with:
           commit_message: Automated Change
           branch: ${{ matrix.version }}/${{ matrix.data_type }}
-      - name: Merge ${{ matrix.version }}/${{ matrix.data_type }} -> test/gha
+      - name: Merge ${{ matrix.version }}/${{ matrix.data_type }} -> main
         uses: devmasx/merge-branch@master
         with:
            type: now
            from_branch: ${{ matrix.version }}/${{ matrix.data_type }}
+           target_branch : main
            github_token: ${{ secrets.GITHUB_TOKEN }}
   
